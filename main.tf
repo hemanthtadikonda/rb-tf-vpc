@@ -23,6 +23,3 @@ resource "aws_internet_gateway" "igw" {
 #  gateway_id                = aws_internet_gateway.igw.id
 #}
 
-output "subnets" {
-  value = module.subnets
-}
