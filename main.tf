@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "igw" {
 }
 resource "aws_route" "igw" {
   route_table_id            = lookup(lookup(lookup(module.subnets, "public",null ),"route_table_ids",null),"id",null)
-  destination_cidr_block    = ["0.0.0.0/0"]
+  cidr_block                = "0.0.0.0/0"
   gateway_id                = aws_internet_gateway.igw.id
 }
 
