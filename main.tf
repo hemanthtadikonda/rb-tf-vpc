@@ -58,12 +58,12 @@ resource "aws_route" "peer" {
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 }
 
-#resource "aws_route" "default-vpc-peer-entry" {
-#  route_table_id            = data.aws_subnet.
-#  destination_cidr_block    = "10.0.1.0/22"
-#  vpc_peering_connection_id = "pcx-45ff3dc1"
-#  depends_on                = [aws_route_table.testing]
-#}
+resource "aws_route" "default-vpc-peer-entry" {
+  route_table_id            = var.def_route_table_id
+  destination_cidr_block    = var.cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
+
+}
 
 
 
