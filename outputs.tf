@@ -1,3 +1,6 @@
 output "subnets" {
-  value = [for k,v in lookup(lookup(module.subnets,"public",null ),"subnets_ids",null) : v.id ]
+  value = module.subnets
+}
+output "def_subnets" {
+  value = data.aws_subnet.default
 }
