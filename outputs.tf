@@ -1,6 +1,6 @@
 output "subnets" {
   value = module.subnets
 }
-output "def_subnets" {
-  value = data.aws_subnet.default
+output "vpc_id" {
+  value = var.default_vpc_id
 }
