@@ -4,12 +4,12 @@ resource "aws_subnet" "main" {
   vpc_id            = var.vpc_id
   cidr_block        = each.value[ "cidr" ]
   availability_zone = each.value[ "az" ]
-  tags              = merge(var.tags,{ Name = "${each.key}-sb" })
+  tags              = merge(var.tags,{ Name = "${var.env}-${each.key}-sb" })
 }
 resource "aws_route_table" "main" {
   for_each = var.subnets
   vpc_id   = var.vpc_id
-  tags     = merge(var.tags,{ Name = "${each.key}-rt" })
+  tags     = merge(var.tags,{ Name = "${var.env}-${each.key}-rt" })
 
 }
 resource "aws_route_table_association" "association" {
